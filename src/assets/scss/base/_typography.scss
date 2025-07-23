@@ -1,0 +1,28 @@
+@use '../abstracts' as *;
+
+body {
+  font-weight: 400;
+  font-size: $font-size--md;
+  font-family: $font-primary;
+}
+
+button,
+body {
+  color: $color-gray-15;
+}
+
+p {
+  color: $color-gray-35;
+}
+
+h1 {
+  font-size: $font-size--3xl;
+}
+
+h2 {
+  font-size: $font-size--2xl;
+}
+
+h3 {
+  font-size: $font-size--lg;
+}
