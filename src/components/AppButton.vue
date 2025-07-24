@@ -1,0 +1,88 @@
+<script setup lang="ts">
+defineProps<{
+  name: string;
+  color: 'primary' | 'secondary' | 'gray';
+  to?: string;
+}>();
+</script>
+
+<template>
+  <RouterLink
+    v-if="to"
+    :to="to"
+    class="app-button"
+    :data-color="color"
+  >
+    {{ name }}
+  </RouterLink>
+  <button
+    v-else
+    class="app-button"
+    :data-color="color"
+  >
+    {{ name }}
+  </button>
+</template>
+
+<style scoped lang="scss">
+@use 'sass:color';
+
+.app-button {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  transition:
+    color 0.4s ease-in-out,
+    background-color 0.4s ease-in-out;
+  border-radius: $radius--sm;
+  background-color: var(--bg-color);
+  padding: 0.75rem 1.25rem;
+  width: fit-content;
+  overflow: hidden;
+  color: var(--text-color);
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    z-index: -1;
+    transition: transform 0.4s ease-in-out;
+    background-color: var(--bg-hover-color);
+    width: 100%;
+    height: 100%;
+    content: '';
+  }
+
+  &:hover,
+  &:focus-visible {
+    &::before {
+      transform: translateX(0);
+    }
+  }
+
+  &[data-color='primary'] {
+    --bg-color: #{$color-primary};
+    --text-color: #{$color-white};
+    --bg-hover-color: #{color.scale($color-primary, $lightness: -10%)};
+  }
+
+  &[data-color='secondary'] {
+    --bg-color: #{$color-white-99};
+    --text-color: #{$color-gray-15};
+    --bg-hover-color: #{color.scale($color-white-99, $lightness: -10%)};
+
+    border: 1px solid $color-white-95;
+  }
+
+  &[data-color='gray'] {
+    --bg-color: #{$color-white-97};
+    --text-color: #{$color-gray-15};
+    --bg-hover-color: #{color.scale($color-white-97, $lightness: -10%)};
+
+    border: 1px solid $color-white-95;
+  }
+}
+</style>
