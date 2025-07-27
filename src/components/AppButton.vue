@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import type { RouteLocationAsPathGeneric, RouteLocationAsRelativeGeneric } from 'vue-router';
+
 defineProps<{
   name: string;
   color: 'primary' | 'secondary' | 'gray';
-  to?: string;
+  to?: string | RouteLocationAsRelativeGeneric | RouteLocationAsPathGeneric;
 }>();
 </script>
 
