@@ -1,11 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import HomeView from '@/views/HomeView.vue';
-import AboutView from '@/views/AboutView.vue';
-import CoursesView from '@/views/CoursesView.vue';
-import ContactView from '@/views/ContactView.vue';
-import PricingView from '@/views/PricingView.vue';
-import SignUpView from '@/views/SignUpView.vue';
-import LoginView from '@/views/LoginView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -13,7 +6,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView,
+      component: () => import('@/views/HomeView.vue'),
       meta: {
         title: 'Power Your Potential',
       },
@@ -21,7 +14,7 @@ const router = createRouter({
     {
       path: '/courses',
       name: 'courses',
-      component: CoursesView,
+      component: () => import('@/views/CoursesView.vue'),
       meta: {
         title: 'Courses',
       },
@@ -29,7 +22,7 @@ const router = createRouter({
     {
       path: '/about-us',
       name: 'about',
-      component: AboutView,
+      component: () => import('@/views/AboutView.vue'),
       meta: {
         title: 'About Us',
       },
@@ -37,7 +30,7 @@ const router = createRouter({
     {
       path: '/pricing',
       name: 'pricing',
-      component: PricingView,
+      component: () => import('@/views/PricingView.vue'),
       meta: {
         title: 'Pricing',
       },
@@ -45,7 +38,7 @@ const router = createRouter({
     {
       path: '/contact',
       name: 'contact',
-      component: ContactView,
+      component: () => import('@/views/ContactView.vue'),
       meta: {
         title: 'Contact',
       },
@@ -53,7 +46,7 @@ const router = createRouter({
     {
       path: '/sign-up',
       name: 'sign-up',
-      component: SignUpView,
+      component: () => import('@/views/SignUpView.vue'),
       meta: {
         title: 'Sign Up',
       },
@@ -61,7 +54,7 @@ const router = createRouter({
     {
       path: '/login',
       name: 'login',
-      component: LoginView,
+      component: () => import('@/views/LoginView.vue'),
       meta: {
         title: 'Log In',
       },
