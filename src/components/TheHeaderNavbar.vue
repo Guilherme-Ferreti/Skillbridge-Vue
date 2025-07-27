@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import AppLogoIcon from '@/assets/icons/AppLogo.svg';
-import { ref, useTemplateRef } from 'vue';
+import { nextTick, onMounted, ref, useTemplateRef } from 'vue';
 import { RouterLink } from 'vue-router';
 import AppButton from './AppButton.vue';
 import BarsThreeBottomRightIcon from '@/assets/icons/BarsThreeBottomRight.svg';
 import XMarkIcon from '@/assets/icons/XMark.svg';
+import * as focusTrap from 'focus-trap';
 
 const routes = [
   {
@@ -29,17 +30,32 @@ const routes = [
   },
 ];
 
-const open = ref(false);
+const isOpen = ref(false);
 
-function toggle() {
-  open.value = !open.value;
+let focusTrapInstance: ReturnType<typeof focusTrap.createFocusTrap> | null = null;
+
+onMounted(() => {
+  focusTrapInstance = focusTrap.createFocusTrap('.mobile-nav__drawer', {
+    escapeDeactivates: false,
+    allowOutsideClick: true,
+  });
+});
+
+function toggle(): void {
+  if (isOpen.value) {
+    isOpen.value = false;
+    nextTick(() => focusTrapInstance?.deactivate());
+  } else {
+    isOpen.value = true;
+    nextTick(() => focusTrapInstance?.activate());
+  }
 }
 </script>
 
 <template>
   <div class="mobile-nav__wrapper">
     <nav
-      :class="{ 'mobile-nav': true, 'mobile-nav--open': open }"
+      :class="{ 'mobile-nav': true, 'mobile-nav--open': isOpen }"
       aria-label="Main navigation"
     >
       <ul class="mobile-nav__links">
@@ -70,7 +86,7 @@ function toggle() {
             class="mobile-nav__open-button"
             aria-label="Open sidebar"
             aria-controls="mobile-nav__drawer"
-            :aria-expanded="open"
+            :aria-expanded="isOpen"
             @click="toggle"
           >
             <BarsThreeBottomRightIcon />
@@ -80,7 +96,7 @@ function toggle() {
       <div
         class="mobile-nav__drawer"
         id="mobile-nav__drawer"
-        :inert="!open"
+        :inert="!isOpen"
         @keyup.escape="toggle"
       >
         <div class="mobile-nav__drawer-head">
