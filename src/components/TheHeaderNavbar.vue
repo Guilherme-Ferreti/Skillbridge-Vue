@@ -13,19 +13,19 @@ const routes = [
     label: 'Home',
   },
   {
-    name: 'home',
+    name: 'courses',
     label: 'Courses',
   },
   {
-    name: 'home',
+    name: 'about',
     label: 'About Us',
   },
   {
-    name: 'home',
+    name: 'pricing',
     label: 'Pricing',
   },
   {
-    name: 'home',
+    name: 'contact',
     label: 'Contact',
   },
 ];
@@ -69,7 +69,7 @@ function toggle(): void {
         </li>
         <li>
           <RouterLink
-            :to="{ name: 'home' }"
+            :to="{ name: 'sign-up' }"
             class="mobile-nav__link"
           >
             Sign Up
@@ -146,13 +146,14 @@ function toggle(): void {
           {{ route.label }}
         </RouterLink>
       </li>
-      <li>
-        <RouterLink :to="{ name: 'home' }">Sign Up</RouterLink>
+      <li class="desktop-nav__link">
+        <RouterLink :to="{ name: 'sign-up' }">Sign Up</RouterLink>
       </li>
       <li>
         <AppButton
           name="Log In"
           color="primary"
+          :to="{ name: 'login' }"
         />
       </li>
     </ul>
