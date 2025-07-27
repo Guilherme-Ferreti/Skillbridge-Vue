@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router';
 import ArrowRightIcon from '@/assets/icons/ArrowRight.svg';
+import { RouterLink } from 'vue-router';
 </script>
 
 <template>

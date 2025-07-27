@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import AppLogoIcon from '@/assets/icons/AppLogo.svg';
-import { nextTick, onMounted, ref, useTemplateRef } from 'vue';
-import { RouterLink } from 'vue-router';
-import AppButton from './AppButton.vue';
 import BarsThreeBottomRightIcon from '@/assets/icons/BarsThreeBottomRight.svg';
 import XMarkIcon from '@/assets/icons/XMark.svg';
 import * as focusTrap from 'focus-trap';
+import { nextTick, onMounted, ref } from 'vue';
+import { RouterLink } from 'vue-router';
+import AppButton from './AppButton.vue';
 
 const routes = [
   {
