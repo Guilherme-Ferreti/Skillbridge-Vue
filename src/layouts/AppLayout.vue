@@ -1,10 +1,15 @@
 <script setup lang="ts">
+import SkipToContentLink from '@/components/SkipToContentLink.vue';
 import TheHeader from '@/components/TheHeader.vue';
 </script>
 
 <template>
+  <SkipToContentLink />
   <TheHeader />
-  <main>
+  <main
+    class="container"
+    id="main-content"
+  >
     <RouterView />
   </main>
 </template>
