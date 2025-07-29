@@ -1,0 +1,42 @@
+<script setup lang="ts">
+import { VideoPlayer } from '@videojs-player/vue';
+import 'video.js/dist/video-js.css';
+import { defineComponent } from 'vue';
+
+defineComponent({
+  components: {
+    VideoPlayer,
+  },
+});
+</script>
+
+<template>
+  <div class="video-player">
+    <VideoPlayer v-bind="$attrs" />
+  </div>
+</template>
+
+<style lang="scss">
+.video-player {
+  border-radius: $radius--xl;
+  width: 100%;
+  max-width: 65rem;
+  overflow: hidden;
+
+  .video-js .vjs-big-play-button {
+    margin-left: -1em;
+    border: 0.18em solid rgba($color-white, 0.3);
+    border-radius: $radius--full;
+    background-color: rgba($color-white, 0.2);
+    width: 2em;
+    height: 2em;
+    line-height: 1.7em;
+  }
+
+  .video-js:hover .vjs-big-play-button,
+  .video-js .vjs-big-play-button:focus {
+    border: 0.18em solid rgba($color-white, 0.5);
+    background-color: rgba($color-white, 0.4);
+  }
+}
+</style>

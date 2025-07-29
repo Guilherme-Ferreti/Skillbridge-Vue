@@ -1,11 +1,20 @@
 <script setup lang="ts">
 import HomeHero from '@/components/HomeHero.vue';
 import HomePartners from '@/components/HomePartners.vue';
+import VideoPlayer from '@/components/VideoPlayer.vue';
 </script>
 
 <template>
   <HomeHero class="hero-section" />
   <HomePartners class="home-section" />
+  <section class="home-section video-section">
+    <VideoPlayer
+      src="/videos/institutional-video.mp4"
+      poster="/images/team-members.webp"
+      controls
+      aspectRatio="16:9"
+    />
+  </section>
 </template>
 
 <style scoped lang="scss">
@@ -19,5 +28,10 @@ import HomePartners from '@/components/HomePartners.vue';
 
 .hero-section {
   margin-top: 3.125rem;
+}
+
+.video-section {
+  display: grid;
+  place-items: center;
 }
 </style>
