@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { SwiperContainer } from 'swiper/element';
+import type { SwiperProps } from 'swiper/react';
 import { onMounted, useTemplateRef } from 'vue';
 
 const partners = [
@@ -36,9 +38,9 @@ const partners = [
   },
 ];
 
-const swiper = useTemplateRef('swiper');
+const swiper = useTemplateRef<SwiperContainer | null>('swiper');
 
-const swiperOptions = {
+const swiperOptions: SwiperProps = {
   slidesPerView: 2,
   freeMode: true,
   loop: true,
@@ -72,6 +74,8 @@ const swiperOptions = {
 };
 
 onMounted(() => {
+  if (!swiper.value) return;
+
   Object.assign(swiper.value, swiperOptions);
   swiper.value.initialize();
 });
