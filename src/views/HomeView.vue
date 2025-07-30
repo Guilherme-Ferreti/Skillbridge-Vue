@@ -11,8 +11,6 @@ import VideoPlayer from '@/components/VideoPlayer.vue';
     <VideoPlayer
       src="/videos/institutional-video.mp4"
       poster="/images/team-members.webp"
-      controls
-      aspectRatio="16:9"
     />
   </section>
 </template>

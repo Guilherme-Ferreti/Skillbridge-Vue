@@ -1,18 +1,59 @@
 <script setup lang="ts">
-import { VideoPlayer } from '@videojs-player/vue';
+import videojs from 'video.js';
+import Player from 'video.js/dist/types/player';
 import 'video.js/dist/video-js.css';
-import { defineComponent } from 'vue';
+import { onBeforeUnmount, onMounted, useTemplateRef } from 'vue';
 
-defineComponent({
-  components: {
-    VideoPlayer,
+const props = withDefaults(
+  defineProps<{
+    src: string;
+    poster: string;
+    controls?: boolean;
+    aspectRatio?: string;
+    loop?: boolean;
+  }>(),
+  {
+    controls: true,
+    aspectRatio: '16:9',
+    loop: false,
   },
+);
+
+const videoEl = useTemplateRef<HTMLVideoElement>('video-player');
+
+let player: Player | null = null;
+
+onMounted(() => {
+  if (videoEl.value) {
+    player = videojs(videoEl.value, {
+      controls: props.controls,
+      loop: props.loop,
+      poster: props.poster,
+      sources: [
+        {
+          src: props.src,
+          type: 'video/mp4',
+        },
+      ],
+      aspectRatio: props.aspectRatio,
+    });
+  }
+});
+
+onBeforeUnmount(() => {
+  if (player) {
+    player.dispose();
+    player = null;
+  }
 });
 </script>
 
 <template>
   <div class="video-player">
-    <VideoPlayer v-bind="$attrs" />
+    <video
+      ref="video-player"
+      class="video-js"
+    ></video>
   </div>
 </template>
 
