@@ -1,8 +1,3 @@
-<script setup lang="ts">
-import ArrowRightIcon from '@/assets/icons/ArrowRight.svg';
-import { RouterLink } from 'vue-router';
-</script>
-
 <template>
   <div class="header-callout | breakout">
     <RouterLink
@@ -14,6 +9,11 @@ import { RouterLink } from 'vue-router';
     </RouterLink>
   </div>
 </template>
+
+<script setup lang="ts">
+import ArrowRightIcon from '@/assets/icons/ArrowRight.svg';
+import { RouterLink } from 'vue-router';
+</script>
 
 <style scoped lang="scss">
 .header-callout {

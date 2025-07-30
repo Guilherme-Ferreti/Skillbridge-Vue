@@ -1,3 +1,12 @@
+<template>
+  <div class="video-player">
+    <video
+      ref="video-player"
+      class="video-js"
+    ></video>
+  </div>
+</template>
+
 <script setup lang="ts">
 import videojs from 'video.js';
 import Player from 'video.js/dist/types/player';
@@ -47,15 +56,6 @@ onBeforeUnmount(() => {
   }
 });
 </script>
-
-<template>
-  <div class="video-player">
-    <video
-      ref="video-player"
-      class="video-js"
-    ></video>
-  </div>
-</template>
 
 <style lang="scss">
 .video-player {

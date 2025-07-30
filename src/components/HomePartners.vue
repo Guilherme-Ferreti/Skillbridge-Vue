@@ -1,3 +1,27 @@
+<template>
+  <section
+    class="home-partners"
+    aria-label="Our partners"
+  >
+    <swiper-container
+      class="swiper-container"
+      init="false"
+      ref="swiper"
+    >
+      <swiper-slide
+        class="home-partners__logo"
+        v-for="partner in partners"
+      >
+        <img
+          :src="`/logos/partners/${partner.image}`"
+          :alt="partner.alt"
+          role="img"
+        />
+      </swiper-slide>
+    </swiper-container>
+  </section>
+</template>
+
 <script setup lang="ts">
 import type { SwiperContainer } from 'swiper/element';
 import type { SwiperProps } from 'swiper/react';
@@ -80,30 +104,6 @@ onMounted(() => {
   swiper.value.initialize();
 });
 </script>
-
-<template>
-  <section
-    class="home-partners"
-    aria-label="Our partners"
-  >
-    <swiper-container
-      class="swiper-container"
-      init="false"
-      ref="swiper"
-    >
-      <swiper-slide
-        class="home-partners__logo"
-        v-for="partner in partners"
-      >
-        <img
-          :src="`/logos/partners/${partner.image}`"
-          :alt="partner.alt"
-          role="img"
-        />
-      </swiper-slide>
-    </swiper-container>
-  </section>
-</template>
 
 <style scoped lang="scss">
 .home-partners {

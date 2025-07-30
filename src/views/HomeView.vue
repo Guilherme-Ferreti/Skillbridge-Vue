@@ -1,9 +1,3 @@
-<script setup lang="ts">
-import HomeHero from '@/components/HomeHero.vue';
-import HomePartners from '@/components/HomePartners.vue';
-import VideoPlayer from '@/components/VideoPlayer.vue';
-</script>
-
 <template>
   <HomeHero class="hero-section" />
   <HomePartners class="home-section" />
@@ -14,6 +8,12 @@ import VideoPlayer from '@/components/VideoPlayer.vue';
     />
   </section>
 </template>
+
+<script setup lang="ts">
+import HomeHero from '@/components/HomeHero.vue';
+import HomePartners from '@/components/HomePartners.vue';
+import VideoPlayer from '@/components/VideoPlayer.vue';
+</script>
 
 <style scoped lang="scss">
 .home-section {

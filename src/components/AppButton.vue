@@ -1,13 +1,3 @@
-<script setup lang="ts">
-import type { RouteLocationAsPathGeneric, RouteLocationAsRelativeGeneric } from 'vue-router';
-
-defineProps<{
-  name: string;
-  color: 'primary' | 'secondary' | 'gray';
-  to?: string | RouteLocationAsRelativeGeneric | RouteLocationAsPathGeneric;
-}>();
-</script>
-
 <template>
   <RouterLink
     v-if="to"
@@ -25,6 +15,16 @@ defineProps<{
     {{ name }}
   </button>
 </template>
+
+<script setup lang="ts">
+import type { RouteLocationAsPathGeneric, RouteLocationAsRelativeGeneric } from 'vue-router';
+
+defineProps<{
+  name: string;
+  color: 'primary' | 'secondary' | 'gray';
+  to?: string | RouteLocationAsRelativeGeneric | RouteLocationAsPathGeneric;
+}>();
+</script>
 
 <style scoped lang="scss">
 @use 'sass:color';

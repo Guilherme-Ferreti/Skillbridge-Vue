@@ -1,9 +1,3 @@
-<script setup lang="ts">
-import AbstractLineIcon from '@/assets/icons/AbstractLine.svg';
-import BoltIcon from '@/assets/icons/Bolt.svg';
-import AppButton from './AppButton.vue';
-</script>
-
 <template>
   <section
     class="hero"
@@ -43,6 +37,12 @@ import AppButton from './AppButton.vue';
     </div>
   </section>
 </template>
+
+<script setup lang="ts">
+import AbstractLineIcon from '@/assets/icons/AbstractLine.svg';
+import BoltIcon from '@/assets/icons/Bolt.svg';
+import AppButton from './AppButton.vue';
+</script>
 
 <style scoped lang="scss">
 .hero {

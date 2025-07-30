@@ -1,57 +1,3 @@
-<script setup lang="ts">
-import AppLogoIcon from '@/assets/icons/AppLogo.svg';
-import BarsThreeBottomRightIcon from '@/assets/icons/BarsThreeBottomRight.svg';
-import XMarkIcon from '@/assets/icons/XMark.svg';
-import * as focusTrap from 'focus-trap';
-import { nextTick, onMounted, ref } from 'vue';
-import { RouterLink } from 'vue-router';
-import AppButton from './AppButton.vue';
-
-const routes = [
-  {
-    name: 'home',
-    label: 'Home',
-  },
-  {
-    name: 'courses',
-    label: 'Courses',
-  },
-  {
-    name: 'about',
-    label: 'About Us',
-  },
-  {
-    name: 'pricing',
-    label: 'Pricing',
-  },
-  {
-    name: 'contact',
-    label: 'Contact',
-  },
-];
-
-const isOpen = ref(false);
-
-let focusTrapInstance: ReturnType<typeof focusTrap.createFocusTrap> | null = null;
-
-onMounted(() => {
-  focusTrapInstance = focusTrap.createFocusTrap('.mobile-nav__drawer', {
-    escapeDeactivates: false,
-    allowOutsideClick: true,
-  });
-});
-
-function toggle(): void {
-  if (isOpen.value) {
-    isOpen.value = false;
-    nextTick(() => focusTrapInstance?.deactivate());
-  } else {
-    isOpen.value = true;
-    nextTick(() => focusTrapInstance?.activate());
-  }
-}
-</script>
-
 <template>
   <div class="mobile-nav__wrapper">
     <nav
@@ -159,6 +105,60 @@ function toggle(): void {
     </ul>
   </nav>
 </template>
+
+<script setup lang="ts">
+import AppLogoIcon from '@/assets/icons/AppLogo.svg';
+import BarsThreeBottomRightIcon from '@/assets/icons/BarsThreeBottomRight.svg';
+import XMarkIcon from '@/assets/icons/XMark.svg';
+import * as focusTrap from 'focus-trap';
+import { nextTick, onMounted, ref } from 'vue';
+import { RouterLink } from 'vue-router';
+import AppButton from './AppButton.vue';
+
+const routes = [
+  {
+    name: 'home',
+    label: 'Home',
+  },
+  {
+    name: 'courses',
+    label: 'Courses',
+  },
+  {
+    name: 'about',
+    label: 'About Us',
+  },
+  {
+    name: 'pricing',
+    label: 'Pricing',
+  },
+  {
+    name: 'contact',
+    label: 'Contact',
+  },
+];
+
+const isOpen = ref(false);
+
+let focusTrapInstance: ReturnType<typeof focusTrap.createFocusTrap> | null = null;
+
+onMounted(() => {
+  focusTrapInstance = focusTrap.createFocusTrap('.mobile-nav__drawer', {
+    escapeDeactivates: false,
+    allowOutsideClick: true,
+  });
+});
+
+function toggle(): void {
+  if (isOpen.value) {
+    isOpen.value = false;
+    nextTick(() => focusTrapInstance?.deactivate());
+  } else {
+    isOpen.value = true;
+    nextTick(() => focusTrapInstance?.activate());
+  }
+}
+</script>
 
 <style scoped lang="scss">
 .mobile-nav {

@@ -1,8 +1,3 @@
-<script setup lang="ts">
-import SkipToContentLink from '@/components/SkipToContentLink.vue';
-import TheHeader from '@/components/TheHeader.vue';
-</script>
-
 <template>
   <SkipToContentLink />
   <TheHeader />
@@ -13,3 +8,8 @@ import TheHeader from '@/components/TheHeader.vue';
     <RouterView />
   </main>
 </template>
+
+<script setup lang="ts">
+import SkipToContentLink from '@/components/SkipToContentLink.vue';
+import TheHeader from '@/components/TheHeader.vue';
+</script>
