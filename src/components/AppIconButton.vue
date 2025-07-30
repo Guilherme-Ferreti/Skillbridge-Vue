@@ -1,0 +1,99 @@
+<template>
+  <RouterLink
+    v-if="to"
+    :to="to"
+    class="app-icon-button"
+    :data-background="background"
+    :data-shape="shape"
+  >
+    <component :is="icon" />
+  </RouterLink>
+  <button
+    v-else
+    class="app-icon-button"
+    :data-background="background"
+    :data-shape="shape"
+  >
+    <component :is="icon" />
+  </button>
+</template>
+
+<script setup lang="ts">
+import type { RouteLocationAsPathGeneric, RouteLocationAsRelativeGeneric } from 'vue-router';
+
+withDefaults(
+  defineProps<{
+    icon: string;
+    background: 'primary' | 'secondary' | 'gray';
+    shape?: 'square' | 'circle';
+    to?: string | RouteLocationAsRelativeGeneric | RouteLocationAsPathGeneric;
+  }>(),
+  {
+    shape: 'square',
+  },
+);
+</script>
+
+<style scoped lang="scss">
+@use 'sass:color';
+
+.app-icon-button {
+  display: inline-flex;
+  position: relative;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  background-color: var(--bg-color);
+  padding: 0.75rem;
+  width: fit-content;
+  overflow: hidden;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    z-index: -1;
+    transition: transform 0.4s ease-in-out;
+    background-color: var(--bg-hover-color);
+    width: 100%;
+    height: 100%;
+    content: '';
+  }
+
+  &:hover,
+  &:focus-visible {
+    &::before {
+      transform: translateX(0);
+    }
+  }
+
+  &[data-background='primary'] {
+    --bg-color: #{$color-orange-95};
+    --bg-hover-color: #{color.scale($color-orange-95, $lightness: -10%)};
+  }
+
+  &[data-background='secondary'] {
+    border: 1px solid $color-white-95;
+
+    --bg-color: #{$color-white-99};
+    --bg-hover-color: #{color.scale($color-white-99, $lightness: -10%)};
+  }
+
+  &[data-background='gray'] {
+    border: 1px solid $color-white-97;
+
+    --bg-color: #{$color-white-95};
+    --bg-hover-color: #{color.scale($color-white-95, $lightness: -10%)};
+  }
+
+  &[data-shape='square'] {
+    border-radius: $radius--sm;
+  }
+
+  &[data-shape='circle'] {
+    border-radius: $radius--full;
+  }
+}
+</style>
