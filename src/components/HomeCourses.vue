@@ -54,22 +54,15 @@
 </template>
 
 <script setup lang="ts">
-import api from '@/api';
-import { ref } from 'vue';
+import type { HomeCourse } from '@/types/home';
 import AppBadge from './AppBadge.vue';
 import AppButton from './AppButton.vue';
 import AppCard from './AppCard.vue';
 import SectionHeader from './SectionHeader.vue';
 
-const courses = ref([]);
-
-async function getCourses() {
-  const { data } = await api.homeService.getCourses();
-
-  courses.value = data.courses;
-}
-
-getCourses();
+defineProps<{
+  courses: HomeCourse[];
+}>();
 </script>
 
 <style scoped lang="scss">

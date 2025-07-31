@@ -1,15 +1,8 @@
 import axiosInstance from '@/helpers/axios';
+import type { Home } from '@/types/home';
 
 export default class HomeService {
-  static getBenefits() {
-    return axiosInstance.get('/home');
-  }
-
-  static getCourses() {
-    return axiosInstance.get('/home');
-  }
-
-  static getTestimonials() {
-    return axiosInstance.get('/home');
+  static getData() {
+    return axiosInstance.get<Home>('/home');
   }
 }

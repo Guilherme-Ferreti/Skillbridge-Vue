@@ -7,18 +7,44 @@
       poster="/images/team-members.webp"
     />
   </section>
-  <HomeBenefits class="home-section" />
-  <HomeCourses class="home-section" />
-  <HomeTestimonials class="home-section" />
+  <HomeBenefits
+    class="home-section"
+    :benefits="benefits"
+  />
+  <HomeCourses
+    class="home-section"
+    :courses="courses"
+  />
+  <HomeTestimonials
+    class="home-section"
+    :testimonials="testimonials"
+  />
 </template>
 
 <script setup lang="ts">
+import api from '@/api';
 import HomeBenefits from '@/components/HomeBenefits.vue';
 import HomeCourses from '@/components/HomeCourses.vue';
 import HomeHero from '@/components/HomeHero.vue';
 import HomePartners from '@/components/HomePartners.vue';
 import HomeTestimonials from '@/components/HomeTestimonials.vue';
 import VideoPlayer from '@/components/VideoPlayer.vue';
+import type { HomeBenefit, HomeCourse, HomeTestimonial } from '@/types/home';
+import { ref } from 'vue';
+
+const benefits = ref<HomeBenefit[]>([]);
+const courses = ref<HomeCourse[]>([]);
+const testimonials = ref<HomeTestimonial[]>([]);
+
+async function getData() {
+  const { data } = await api.homeService.getData();
+
+  benefits.value = data.benefits;
+  courses.value = data.courses;
+  testimonials.value = data.testimonials;
+}
+
+getData();
 </script>
 
 <style scoped lang="scss">

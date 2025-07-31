@@ -46,21 +46,14 @@
 </template>
 
 <script setup lang="ts">
-import api from '@/api';
-import { ref } from 'vue';
+import type { HomeTestimonial } from '@/types/home';
 import AppButton from './AppButton.vue';
 import AppCard from './AppCard.vue';
 import SectionHeader from './SectionHeader.vue';
 
-const testimonials = ref([]);
-
-async function getTestimonials() {
-  const { data } = await api.homeService.getTestimonials();
-
-  testimonials.value = data.testimonials;
-}
-
-getTestimonials();
+defineProps<{
+  testimonials: HomeTestimonial[];
+}>();
 </script>
 
 <style scoped lang="scss">

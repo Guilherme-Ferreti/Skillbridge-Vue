@@ -47,23 +47,16 @@
 </template>
 
 <script setup lang="ts">
-import api from '@/api';
 import ArrowUpRightIcon from '@/assets/icons/ArrowUpRight.svg';
-import { ref } from 'vue';
+import type { HomeBenefit } from '@/types/home';
 import AppButton from './AppButton.vue';
 import AppCard from './AppCard.vue';
 import AppIconButton from './AppIconButton.vue';
 import SectionHeader from './SectionHeader.vue';
 
-const benefits = ref([]);
-
-async function getBenefits() {
-  const { data } = await api.homeService.getBenefits();
-
-  benefits.value = data.benefits;
-}
-
-getBenefits();
+defineProps<{
+  benefits: HomeBenefit[];
+}>();
 </script>
 
 <style scoped lang="scss">
