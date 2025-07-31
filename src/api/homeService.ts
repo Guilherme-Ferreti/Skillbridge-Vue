@@ -4,4 +4,8 @@ export default class HomeService {
   static getBenefits() {
     return axiosInstance.get('/home');
   }
+
+  static getCourses() {
+    return axiosInstance.get('/home');
+  }
 }

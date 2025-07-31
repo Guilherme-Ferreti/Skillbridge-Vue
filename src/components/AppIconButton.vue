@@ -19,11 +19,12 @@
 </template>
 
 <script setup lang="ts">
+import type { Component } from 'vue';
 import type { RouteLocationAsPathGeneric, RouteLocationAsRelativeGeneric } from 'vue-router';
 
 withDefaults(
   defineProps<{
-    icon: string;
+    icon: Component;
     background: 'primary' | 'secondary' | 'gray';
     shape?: 'square' | 'circle';
     to?: string | RouteLocationAsRelativeGeneric | RouteLocationAsPathGeneric;

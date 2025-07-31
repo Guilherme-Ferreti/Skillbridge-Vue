@@ -1,0 +1,128 @@
+<template>
+  <section
+    class="home-courses"
+    aria-labelledby="home-courses__heading"
+  >
+    <SectionHeader
+      id="home-courses__heading"
+      title="Our Courses"
+      introductoryText="It can be tough to pick the right path for your learning journey. Our courses are designed to make that choice simpler, offering you practical knowledge and skills you can use right away."
+    >
+      <AppButton
+        name="View All"
+        color="secondary"
+        :to="{ name: 'courses' }"
+        aria-label="View all courses"
+      />
+    </SectionHeader>
+    <ul class="flex-grid">
+      <AppCard
+        v-for="course in courses"
+        class="home-courses__card"
+        element="li"
+      >
+        <div class="home-courses__card-teaser-image">
+          <img
+            :src="course.teaserImage"
+            :alt="course.name"
+            loading="lazy"
+            role="presentation"
+          />
+        </div>
+        <div class="home-courses__card-details">
+          <div class="home-courses__card-badges">
+            <AppBadge
+              :text="`${course.expectedCompletionWeeks} ${course.expectedCompletionWeeks > 1 ? 'weeks' : 'week'}`"
+            />
+            <AppBadge :text="course.skillLevel" />
+          </div>
+          <p class="home-courses__card-instructor">By {{ course.instructorName }}</p>
+        </div>
+        <div>
+          <h3>{{ course.name }}</h3>
+          <p class="home-courses__card-teaser-text">{{ course.teaser }}</p>
+        </div>
+        <AppButton
+          :to="{ name: 'courses' }"
+          name="Get it Now"
+          color="gray"
+          :aria-label="`Get ${course.name} now`"
+        />
+      </AppCard>
+    </ul>
+  </section>
+</template>
+
+<script setup lang="ts">
+import api from '@/api';
+import { ref } from 'vue';
+import AppBadge from './AppBadge.vue';
+import AppButton from './AppButton.vue';
+import AppCard from './AppCard.vue';
+import SectionHeader from './SectionHeader.vue';
+
+const courses = ref([]);
+
+async function getCourses() {
+  const { data } = await api.homeService.getCourses();
+
+  courses.value = data.courses;
+}
+
+getCourses();
+</script>
+
+<style scoped lang="scss">
+.home-courses {
+  &__card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 39rem;
+
+    .app-button {
+      margin-top: auto;
+      width: 100%;
+    }
+  }
+
+  &__card-teaser-image {
+    border-radius: $radius--md;
+    overflow: hidden;
+
+    img {
+      transition: all 350ms;
+      aspect-ratio: 2.06;
+      width: 100%;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  &__card-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.875rem;
+  }
+
+  &__card-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.625rem;
+  }
+
+  &__card-instructor {
+    color: inherit;
+    font-weight: bold;
+  }
+
+  &__card-teaser-text {
+    margin-top: 0.625rem;
+  }
+}
+</style>

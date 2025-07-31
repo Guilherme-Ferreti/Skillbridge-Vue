@@ -1,0 +1,18 @@
+<template>
+  <div class="app-badge">
+    <p>{{ text }}</p>
+  </div>
+</template>
+
+<script setup lang="ts">
+defineProps<{ text: string }>();
+</script>
+
+<style scoped lang="scss">
+.app-badge {
+  border: 1px solid $color-white-95;
+  border-radius: $radius--sm;
+  background-color: $color-white;
+  padding: 0.5rem 0.875rem;
+}
+</style>
