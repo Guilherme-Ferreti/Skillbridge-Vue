@@ -9,6 +9,7 @@
   </section>
   <HomeBenefits class="home-section" />
   <HomeCourses class="home-section" />
+  <HomeTestimonials class="home-section" />
 </template>
 
 <script setup lang="ts">
@@ -16,6 +17,7 @@ import HomeBenefits from '@/components/HomeBenefits.vue';
 import HomeCourses from '@/components/HomeCourses.vue';
 import HomeHero from '@/components/HomeHero.vue';
 import HomePartners from '@/components/HomePartners.vue';
+import HomeTestimonials from '@/components/HomeTestimonials.vue';
 import VideoPlayer from '@/components/VideoPlayer.vue';
 </script>
 

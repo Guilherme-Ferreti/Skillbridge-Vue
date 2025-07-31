@@ -8,4 +8,8 @@ export default class HomeService {
   static getCourses() {
     return axiosInstance.get('/home');
   }
+
+  static getTestimonials() {
+    return axiosInstance.get('/home');
+  }
 }
