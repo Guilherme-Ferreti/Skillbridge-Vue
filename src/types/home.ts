@@ -23,6 +23,6 @@ export interface HomeCourse {
 
 export interface HomeTestimonial {
   authorName: string;
-  authorPicture: string;
+  authorImage: string;
   quote: string;
 }
