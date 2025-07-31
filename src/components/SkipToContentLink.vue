@@ -7,7 +7,7 @@
   </a>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .skip-to-content-link {
   position: absolute;
   left: 50%;

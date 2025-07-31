@@ -21,7 +21,7 @@
   />
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import api from '@/api';
 import HomeBenefits from '@/components/HomeBenefits.vue';
 import HomeCourses from '@/components/HomeCourses.vue';
@@ -47,7 +47,7 @@ async function getData() {
 getData();
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .home-section {
   margin-top: 1.875rem;
 

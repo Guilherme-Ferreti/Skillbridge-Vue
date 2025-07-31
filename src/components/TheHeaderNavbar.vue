@@ -106,7 +106,7 @@
   </nav>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import AppLogoIcon from '@/assets/icons/AppLogo.svg';
 import BarsThreeBottomRightIcon from '@/assets/icons/BarsThreeBottomRight.svg';
 import XMarkIcon from '@/assets/icons/XMark.svg';
@@ -160,7 +160,7 @@ function toggle(): void {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .mobile-nav {
   display: block;
 

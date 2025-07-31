@@ -7,11 +7,11 @@
   </component>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 defineProps<{ element: string }>();
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .app-card {
   border-radius: $radius--lg;
   background-color: $color-white;

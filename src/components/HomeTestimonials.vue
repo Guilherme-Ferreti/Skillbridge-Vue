@@ -45,7 +45,7 @@
   </section>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import type { HomeTestimonial } from '@/types/home';
 import AppButton from './AppButton.vue';
 import AppCard from './AppCard.vue';
@@ -56,7 +56,7 @@ defineProps<{
 }>();
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .home-testimonials {
   --content-padding: 1.875rem;
   --footer-padding: 1.25rem;

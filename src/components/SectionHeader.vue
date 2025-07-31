@@ -18,7 +18,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 withDefaults(
   defineProps<{
     id: string;
@@ -32,7 +32,7 @@ withDefaults(
 );
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .section-header {
   &__content {
     display: grid;

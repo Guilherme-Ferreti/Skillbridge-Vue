@@ -10,12 +10,12 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import ArrowRightIcon from '@/assets/icons/ArrowRight.svg';
 import { RouterLink } from 'vue-router';
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .header-callout {
   border-radius: $radius--sm;
   background-color: $color-primary;

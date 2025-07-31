@@ -38,13 +38,13 @@
   </section>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import AbstractLineIcon from '@/assets/icons/AbstractLine.svg';
 import BoltIcon from '@/assets/icons/Bolt.svg';
 import AppButton from './AppButton.vue';
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .hero {
   display: grid;
   place-items: center;

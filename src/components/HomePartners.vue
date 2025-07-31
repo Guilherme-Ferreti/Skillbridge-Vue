@@ -22,7 +22,7 @@
   </section>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import type { SwiperContainer } from 'swiper/element';
 import type { SwiperProps } from 'swiper/react';
 import { onMounted, useTemplateRef } from 'vue';
@@ -105,7 +105,7 @@ onMounted(() => {
 });
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .home-partners {
   background-color: $color-white;
   padding: 0.625rem;

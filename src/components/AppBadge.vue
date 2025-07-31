@@ -4,11 +4,11 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 defineProps<{ text: string }>();
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .app-badge {
   border: 1px solid $color-white-95;
   border-radius: $radius--sm;

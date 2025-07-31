@@ -16,7 +16,7 @@
   </button>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import type { RouteLocationAsPathGeneric, RouteLocationAsRelativeGeneric } from 'vue-router';
 
 defineProps<{
@@ -26,7 +26,7 @@ defineProps<{
 }>();
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 @use 'sass:color';
 
 .app-button {

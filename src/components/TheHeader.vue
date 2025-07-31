@@ -5,12 +5,12 @@
   </header>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import TheHeaderCallout from './TheHeaderCallout.vue';
 import TheHeaderNavbar from './TheHeaderNavbar.vue';
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .header {
   padding-top: 1.75rem;
 

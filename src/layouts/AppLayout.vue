@@ -9,7 +9,7 @@
   </main>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import SkipToContentLink from '@/components/SkipToContentLink.vue';
 import TheHeader from '@/components/TheHeader.vue';
 </script>

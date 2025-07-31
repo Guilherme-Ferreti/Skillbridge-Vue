@@ -46,7 +46,7 @@
   </section>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import ArrowUpRightIcon from '@/assets/icons/ArrowUpRight.svg';
 import type { HomeBenefit } from '@/types/home';
 import AppButton from './AppButton.vue';
@@ -59,7 +59,7 @@ defineProps<{
 }>();
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .home-benefits {
   &__card {
     display: flex;
