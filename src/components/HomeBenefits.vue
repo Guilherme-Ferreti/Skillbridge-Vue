@@ -16,8 +16,14 @@
         aria-label="View all benefits"
       />
     </SectionHeader>
-
-    <ol class="flex-grid">
+    <AppLoadingIndicator
+      v-if="isLoading"
+      size="large"
+    />
+    <ol
+      v-else
+      class="flex-grid"
+    >
       <AppCard
         v-for="(benefit, index) in benefits"
         class="home-benefits__card"
@@ -52,10 +58,12 @@ import type { HomeBenefit } from '@/types/home';
 import AppButton from './AppButton.vue';
 import AppCard from './AppCard.vue';
 import AppIconButton from './AppIconButton.vue';
+import AppLoadingIndicator from './AppLoadingIndicator.vue';
 import SectionHeader from './SectionHeader.vue';
 
 defineProps<{
   benefits: HomeBenefit[];
+  isLoading: boolean;
 }>();
 </script>
 

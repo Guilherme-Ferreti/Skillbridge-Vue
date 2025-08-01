@@ -10,14 +10,17 @@
   <HomeBenefits
     class="home-section"
     :benefits="benefits"
+    :isLoading="isLoading"
   />
   <HomeCourses
     class="home-section"
     :courses="courses"
+    :isLoading="isLoading"
   />
   <HomeTestimonials
     class="home-section"
     :testimonials="testimonials"
+    :isLoading="isLoading"
   />
 </template>
 
@@ -32,16 +35,23 @@ import VideoPlayer from '@/components/VideoPlayer.vue';
 import type { HomeBenefit, HomeCourse, HomeTestimonial } from '@/types/home';
 import { ref } from 'vue';
 
+const isLoading = ref(true);
 const benefits = ref<HomeBenefit[]>([]);
 const courses = ref<HomeCourse[]>([]);
 const testimonials = ref<HomeTestimonial[]>([]);
 
 async function getData() {
-  const { data } = await api.homeService.getData();
+  try {
+    const { data } = await api.homeService.getData();
 
-  benefits.value = data.benefits;
-  courses.value = data.courses;
-  testimonials.value = data.testimonials;
+    benefits.value = data.benefits;
+    courses.value = data.courses;
+    testimonials.value = data.testimonials;
+  } catch (error) {
+    console.error(error);
+  } finally {
+    isLoading.value = false;
+  }
 }
 
 getData();

@@ -15,7 +15,14 @@
         aria-label="View all testimonials"
       />
     </SectionHeader>
-    <ul class="flex-grid">
+    <AppLoadingIndicator
+      v-if="isLoading"
+      size="large"
+    />
+    <ul
+      v-else
+      class="flex-grid"
+    >
       <AppCard
         v-for="testimonial in testimonials"
         class="home-testimonials__card"
@@ -49,10 +56,12 @@
 import type { HomeTestimonial } from '@/types/home';
 import AppButton from './AppButton.vue';
 import AppCard from './AppCard.vue';
+import AppLoadingIndicator from './AppLoadingIndicator.vue';
 import SectionHeader from './SectionHeader.vue';
 
 defineProps<{
   testimonials: HomeTestimonial[];
+  isLoading: boolean;
 }>();
 </script>
 

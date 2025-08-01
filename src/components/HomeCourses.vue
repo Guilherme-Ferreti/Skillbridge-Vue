@@ -15,7 +15,14 @@
         aria-label="View all courses"
       />
     </SectionHeader>
-    <ul class="flex-grid">
+    <AppLoadingIndicator
+      v-if="isLoading"
+      size="large"
+    />
+    <ul
+      v-else
+      class="flex-grid"
+    >
       <AppCard
         v-for="course in courses"
         class="home-courses__card"
@@ -58,10 +65,12 @@ import type { HomeCourse } from '@/types/home';
 import AppBadge from './AppBadge.vue';
 import AppButton from './AppButton.vue';
 import AppCard from './AppCard.vue';
+import AppLoadingIndicator from './AppLoadingIndicator.vue';
 import SectionHeader from './SectionHeader.vue';
 
 defineProps<{
   courses: HomeCourse[];
+  isLoading: boolean;
 }>();
 </script>
 
