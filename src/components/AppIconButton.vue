@@ -25,7 +25,7 @@ import AppLink from './AppLink.vue';
 
 withDefaults(
   defineProps<{
-    icon: Component;
+    icon: string | Component;
     background: 'primary' | 'secondary' | 'gray';
     shape?: 'square' | 'circle';
     to?: RouteLocationRaw;
