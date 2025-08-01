@@ -1,12 +1,12 @@
 <template>
-  <RouterLink
+  <AppLink
     v-if="to"
     class="app-button"
     :to="to"
     :data-color="color"
   >
     {{ name }}
-  </RouterLink>
+  </AppLink>
   <button
     v-else
     class="app-button"
@@ -17,12 +17,13 @@
 </template>
 
 <script lang="ts" setup>
-import type { RouteLocationAsPathGeneric, RouteLocationAsRelativeGeneric } from 'vue-router';
+import type { RouteLocationRaw } from 'vue-router';
+import AppLink from './AppLink.vue';
 
 defineProps<{
   name: string;
   color: 'primary' | 'secondary' | 'gray';
-  to?: string | RouteLocationAsRelativeGeneric | RouteLocationAsPathGeneric;
+  to?: RouteLocationRaw;
 }>();
 </script>
 

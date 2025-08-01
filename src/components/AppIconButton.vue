@@ -1,5 +1,5 @@
 <template>
-  <RouterLink
+  <AppLink
     v-if="to"
     class="app-icon-button"
     :to="to"
@@ -7,7 +7,7 @@
     :data-shape="shape"
   >
     <component :is="icon" />
-  </RouterLink>
+  </AppLink>
   <button
     v-else
     class="app-icon-button"
@@ -20,14 +20,15 @@
 
 <script lang="ts" setup>
 import type { Component } from 'vue';
-import type { RouteLocationAsPathGeneric, RouteLocationAsRelativeGeneric } from 'vue-router';
+import type { RouteLocationRaw } from 'vue-router';
+import AppLink from './AppLink.vue';
 
 withDefaults(
   defineProps<{
     icon: Component;
     background: 'primary' | 'secondary' | 'gray';
     shape?: 'square' | 'circle';
-    to?: string | RouteLocationAsRelativeGeneric | RouteLocationAsPathGeneric;
+    to?: RouteLocationRaw;
   }>(),
   {
     shape: 'square',
