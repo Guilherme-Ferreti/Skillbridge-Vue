@@ -8,6 +8,7 @@
   "tabWidth": 2,
   "useTabs": false,
   "plugins": [
-    "prettier-plugin-organize-imports"
-  ]
+    "prettier-plugin-organize-imports", "prettier-plugin-organize-attributes", "prettier-plugin-css-order"
+  ],
+  "attributeGroups": ["$VUE_ATTRIBUTE", "$CODE_GUIDE" ]
 }
