@@ -22,10 +22,12 @@
     :testimonials="testimonials"
     :isLoading="isLoading"
   />
+  <FaqSection class="home-section" />
 </template>
 
 <script lang="ts" setup>
 import api from '@/api';
+import FaqSection from '@/components/FaqSection.vue';
 import HomeBenefits from '@/components/HomeBenefits.vue';
 import HomeCourses from '@/components/HomeCourses.vue';
 import HomeHero from '@/components/HomeHero.vue';
