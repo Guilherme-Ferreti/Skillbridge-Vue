@@ -1,8 +1,8 @@
 <template>
   <div class="video-player">
     <video
-      ref="video-player"
       class="video-js"
+      ref="video-player"
     ></video>
   </div>
 </template>

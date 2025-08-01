@@ -1,22 +1,22 @@
 <template>
   <div class="mobile-nav__wrapper">
     <nav
-      :class="{ 'mobile-nav': true, 'mobile-nav--open': isOpen }"
       aria-label="Main navigation"
+      :class="{ 'mobile-nav': true, 'mobile-nav--open': isOpen }"
     >
       <ul class="mobile-nav__links">
         <li class="mobile-nav__logo">
           <RouterLink
-            :to="{ name: 'home' }"
             aria-label="Home"
+            :to="{ name: 'home' }"
           >
             <AppLogoIcon />
           </RouterLink>
         </li>
         <li>
           <RouterLink
-            :to="{ name: 'sign-up' }"
             class="mobile-nav__link"
+            :to="{ name: 'sign-up' }"
           >
             Sign Up
           </RouterLink>
@@ -49,16 +49,16 @@
           <AppLogoIcon role="presentation" />
           <button
             class="mobile-nav__close-button"
-            @click="toggle"
             aria-label="Close sidebar"
+            @click="toggle"
           >
             <XMarkIcon />
           </button>
         </div>
         <ul>
           <li
-            class="mobile-nav__drawer-link"
             v-for="route in routes"
+            class="mobile-nav__drawer-link"
           >
             <RouterLink :to="{ name: route.name }">
               {{ route.label }}
@@ -85,8 +85,8 @@
         <AppLogoIcon />
       </li>
       <li
-        class="desktop-nav__link"
         v-for="route in routes"
+        class="desktop-nav__link"
       >
         <RouterLink :to="{ name: route.name }">
           {{ route.label }}

@@ -20,12 +20,12 @@ withDefaults(
 
 <style lang="scss" scoped>
 .app-loading-indicator {
+  animation: spin 1s linear infinite;
   border: var(--border-width) solid $color-white;
   border-top-color: $color-primary;
   border-radius: 50%;
   width: var(--width);
   height: var(--height);
-  animation: spin 1s linear infinite;
 
   &[data-size='small'] {
     --border-width: 0.25rem;

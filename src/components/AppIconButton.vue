@@ -1,8 +1,8 @@
 <template>
   <RouterLink
     v-if="to"
-    :to="to"
     class="app-icon-button"
+    :to="to"
     :data-background="background"
     :data-shape="shape"
   >

@@ -10,9 +10,9 @@
     >
       <AppButton
         name="View All"
+        aria-label="View all courses"
         color="secondary"
         :to="{ name: 'courses' }"
-        aria-label="View all courses"
       />
     </SectionHeader>
     <AppLoadingIndicator
@@ -30,10 +30,10 @@
       >
         <div class="home-courses__card-teaser-image">
           <img
+            role="presentation"
             :src="course.teaserImage"
             :alt="course.name"
             loading="lazy"
-            role="presentation"
           />
         </div>
         <div class="home-courses__card-details">
@@ -50,8 +50,8 @@
           <p class="home-courses__card-teaser-text">{{ course.teaser }}</p>
         </div>
         <AppButton
-          :to="{ name: 'courses' }"
           name="Get it Now"
+          :to="{ name: 'courses' }"
           color="gray"
           :aria-label="`Get ${course.name} now`"
         />

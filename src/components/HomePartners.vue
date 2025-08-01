@@ -9,13 +9,13 @@
       ref="swiper"
     >
       <swiper-slide
-        class="home-partners__logo"
         v-for="partner in partners"
+        class="home-partners__logo"
       >
         <img
+          role="img"
           :src="`/logos/partners/${partner.image}`"
           :alt="partner.alt"
-          role="img"
         />
       </swiper-slide>
     </swiper-container>

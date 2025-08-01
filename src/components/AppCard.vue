@@ -1,7 +1,7 @@
 <template>
   <component
-    :is="element"
     class="app-card"
+    :is="element"
   >
     <slot />
   </component>

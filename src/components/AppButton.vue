@@ -1,8 +1,8 @@
 <template>
   <RouterLink
     v-if="to"
-    :to="to"
     class="app-button"
+    :to="to"
     :data-color="color"
   >
     {{ name }}

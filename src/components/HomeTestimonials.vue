@@ -9,10 +9,10 @@
       introductoryText="Explore our collection of inspiring testimonials where past students share their experiences with our e-learning courses."
     >
       <AppButton
-        :to="{ name: 'home' }"
         name="View All"
-        color="secondary"
         aria-label="View all testimonials"
+        :to="{ name: 'home' }"
+        color="secondary"
       />
     </SectionHeader>
     <AppLoadingIndicator
@@ -41,8 +41,8 @@
             <p>{{ testimonial.authorName }}</p>
           </div>
           <AppButton
-            :to="{ name: 'home' }"
             name="Read Full Story"
+            :to="{ name: 'home' }"
             color="gray"
             :aria-label="`Read ${testimonial.authorName}'s full story`"
           />

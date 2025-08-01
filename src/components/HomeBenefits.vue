@@ -11,9 +11,9 @@
     >
       <AppButton
         name="View All"
+        aria-label="View all benefits"
         color="secondary"
         :to="{ name: 'courses' }"
-        aria-label="View all benefits"
       />
     </SectionHeader>
     <AppLoadingIndicator
@@ -41,10 +41,10 @@
 
         <div class="home-benefits__card-footer">
           <AppIconButton
+            aria-label="Learn more about our benefits"
             :icon="ArrowUpRightIcon"
             background="secondary"
             :to="{ name: 'courses' }"
-            aria-label="Learn more about our benefits"
           />
         </div>
       </AppCard>

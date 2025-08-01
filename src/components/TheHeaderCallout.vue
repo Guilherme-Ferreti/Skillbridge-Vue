@@ -1,8 +1,8 @@
 <template>
   <div class="header-callout | breakout">
     <RouterLink
-      :to="{ name: 'home' }"
       class="header-callout__link"
+      :to="{ name: 'home' }"
     >
       <span>Free Courses 🌟 Sale Ends Soon, Get It Now</span>
       <ArrowRightIcon />
