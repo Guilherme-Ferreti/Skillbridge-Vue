@@ -16,7 +16,7 @@
       />
     </SectionHeader>
     <AppLoadingIndicator
-      v-if="isLoading"
+      v-if="homeStore.isLoadingData"
       size="large"
     />
     <ul
@@ -60,10 +60,6 @@ import SectionHeader from './SectionHeader.vue';
 import { useHomeStore } from '@/stores/homeStore';
 
 const homeStore = useHomeStore();
-
-defineProps<{
-  isLoading: boolean;
-}>();
 </script>
 
 <style lang="scss" scoped>

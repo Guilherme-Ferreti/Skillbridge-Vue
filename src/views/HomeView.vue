@@ -7,18 +7,9 @@
       poster="/images/team-members.webp"
     />
   </section>
-  <HomeBenefits
-    class="home-section"
-    :isLoading="isLoading"
-  />
-  <HomeCourses
-    class="home-section"
-    :isLoading="isLoading"
-  />
-  <HomeTestimonials
-    class="home-section"
-    :isLoading="isLoading"
-  />
+  <HomeBenefits class="home-section" />
+  <HomeCourses class="home-section" />
+  <HomeTestimonials class="home-section" />
   <FaqSection class="home-section" />
 </template>
 
@@ -31,22 +22,10 @@ import HomePartners from '@/components/HomePartners.vue';
 import HomeTestimonials from '@/components/HomeTestimonials.vue';
 import VideoPlayer from '@/components/VideoPlayer.vue';
 import { useHomeStore } from '@/stores/homeStore';
-import { ref } from 'vue';
 
 const homeStore = useHomeStore();
-const isLoading = ref(true);
 
-async function getData() {
-  try {
-    await homeStore.loadData();
-  } catch (error) {
-    console.error(error);
-  } finally {
-    isLoading.value = false;
-  }
-}
-
-getData();
+homeStore.loadData();
 </script>
 
 <style lang="scss" scoped>
