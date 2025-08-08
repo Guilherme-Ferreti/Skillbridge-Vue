@@ -19,12 +19,13 @@
       </div>
       <div class="faq__questions">
         <AppLoadingIndicator
-          v-if="isLoading"
+          v-if="faqStore.isLoadingData"
           size="large"
         />
+        <ErrorState v-else-if="faqStore.errorOnLoad" />
         <template v-else>
           <details
-            v-for="question in questions"
+            v-for="question in faqStore.questions"
             class="faq__question-wrapper"
             name="faq-question"
           >
@@ -43,30 +44,16 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
 import AppBasicLink from './AppBasicLink.vue';
 import AppCard from './AppCard.vue';
 import PlusIcon from '@/assets/icons/Plus.svg';
-import type { FaqQuestion } from '@/types/faq';
-import api from '@/api';
 import AppLoadingIndicator from './AppLoadingIndicator.vue';
+import { useFaqStore } from '@/stores/faqStore';
+import ErrorState from './ErrorState.vue';
 
-const questions = ref<FaqQuestion[]>([]);
-const isLoading = ref(true);
+const faqStore = useFaqStore();
 
-async function getQuestions() {
-  try {
-    const { data } = await api.faqService.getFaqQuestions();
-
-    questions.value = data;
-  } catch (error) {
-    console.error(error);
-  } finally {
-    isLoading.value = false;
-  }
-}
-
-getQuestions();
+faqStore.loadData();
 </script>
 
 <style lang="scss" scoped>
