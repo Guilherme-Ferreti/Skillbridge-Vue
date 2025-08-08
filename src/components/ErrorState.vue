@@ -6,6 +6,10 @@
 
 <style lang="scss" scoped>
 .error-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   &__message {
     color: $color-gray-35;
     font-weight: bold;
