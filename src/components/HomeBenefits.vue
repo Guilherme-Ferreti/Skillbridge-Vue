@@ -20,6 +20,7 @@
       v-if="homeStore.isLoadingData"
       size="large"
     />
+    <ErrorState v-else-if="homeStore.errorOnLoad" />
     <ol
       v-else
       class="flex-grid"
@@ -60,6 +61,7 @@ import AppIconButton from './AppIconButton.vue';
 import AppLoadingIndicator from './AppLoadingIndicator.vue';
 import SectionHeader from './SectionHeader.vue';
 import { useHomeStore } from '@/stores/homeStore';
+import ErrorState from './ErrorState.vue';
 
 const homeStore = useHomeStore();
 </script>

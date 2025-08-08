@@ -7,6 +7,7 @@ interface StoreState {
   courses: HomeCourse[];
   testimonials: HomeTestimonial[];
   isLoadingData: boolean;
+  errorOnLoad: boolean;
 }
 
 export const useHomeStore = defineStore('home', {
@@ -15,6 +16,7 @@ export const useHomeStore = defineStore('home', {
     courses: [],
     testimonials: [],
     isLoadingData: true,
+    errorOnLoad: false,
   }),
   getters: {
     shouldLoadData: (state) =>
@@ -25,6 +27,7 @@ export const useHomeStore = defineStore('home', {
       if (!this.shouldLoadData) return;
 
       this.isLoadingData = true;
+      this.errorOnLoad = false;
 
       try {
         const { data } = await api.homeService.getData();
@@ -33,7 +36,7 @@ export const useHomeStore = defineStore('home', {
         this.courses = data.courses;
         this.testimonials = data.testimonials;
       } catch (error) {
-        console.error(error);
+        this.errorOnLoad = true;
       } finally {
         this.isLoadingData = false;
       }
