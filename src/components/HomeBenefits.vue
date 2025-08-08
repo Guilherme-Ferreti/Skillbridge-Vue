@@ -25,7 +25,7 @@
       class="flex-grid"
     >
       <AppCard
-        v-for="(benefit, index) in benefits"
+        v-for="(benefit, index) in homeStore.benefits"
         class="home-benefits__card"
         element="li"
         :value="index"
@@ -54,15 +54,16 @@
 
 <script lang="ts" setup>
 import ArrowUpRightIcon from '@/assets/icons/ArrowUpRight.svg';
-import type { HomeBenefit } from '@/types/home';
 import AppButton from './AppButton.vue';
 import AppCard from './AppCard.vue';
 import AppIconButton from './AppIconButton.vue';
 import AppLoadingIndicator from './AppLoadingIndicator.vue';
 import SectionHeader from './SectionHeader.vue';
+import { useHomeStore } from '@/stores/homeStore';
+
+const homeStore = useHomeStore();
 
 defineProps<{
-  benefits: HomeBenefit[];
   isLoading: boolean;
 }>();
 </script>

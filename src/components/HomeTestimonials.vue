@@ -24,7 +24,7 @@
       class="flex-grid"
     >
       <AppCard
-        v-for="testimonial in testimonials"
+        v-for="testimonial in homeStore.testimonials"
         class="home-testimonials__card"
         element="li"
       >
@@ -53,14 +53,15 @@
 </template>
 
 <script lang="ts" setup>
-import type { HomeTestimonial } from '@/types/home';
 import AppButton from './AppButton.vue';
 import AppCard from './AppCard.vue';
 import AppLoadingIndicator from './AppLoadingIndicator.vue';
 import SectionHeader from './SectionHeader.vue';
+import { useHomeStore } from '@/stores/homeStore';
+
+const homeStore = useHomeStore();
 
 defineProps<{
-  testimonials: HomeTestimonial[];
   isLoading: boolean;
 }>();
 </script>

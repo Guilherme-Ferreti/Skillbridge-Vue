@@ -24,7 +24,7 @@
       class="flex-grid"
     >
       <AppCard
-        v-for="course in courses"
+        v-for="course in homeStore.courses"
         class="home-courses__card"
         element="li"
       >
@@ -61,15 +61,16 @@
 </template>
 
 <script lang="ts" setup>
-import type { HomeCourse } from '@/types/home';
 import AppBadge from './AppBadge.vue';
 import AppButton from './AppButton.vue';
 import AppCard from './AppCard.vue';
 import AppLoadingIndicator from './AppLoadingIndicator.vue';
 import SectionHeader from './SectionHeader.vue';
+import { useHomeStore } from '@/stores/homeStore';
+
+const homeStore = useHomeStore();
 
 defineProps<{
-  courses: HomeCourse[];
   isLoading: boolean;
 }>();
 </script>

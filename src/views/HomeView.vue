@@ -9,24 +9,20 @@
   </section>
   <HomeBenefits
     class="home-section"
-    :benefits="benefits"
     :isLoading="isLoading"
   />
   <HomeCourses
     class="home-section"
-    :courses="courses"
     :isLoading="isLoading"
   />
   <HomeTestimonials
     class="home-section"
-    :testimonials="testimonials"
     :isLoading="isLoading"
   />
   <FaqSection class="home-section" />
 </template>
 
 <script lang="ts" setup>
-import api from '@/api';
 import FaqSection from '@/components/FaqSection.vue';
 import HomeBenefits from '@/components/HomeBenefits.vue';
 import HomeCourses from '@/components/HomeCourses.vue';
@@ -34,21 +30,15 @@ import HomeHero from '@/components/HomeHero.vue';
 import HomePartners from '@/components/HomePartners.vue';
 import HomeTestimonials from '@/components/HomeTestimonials.vue';
 import VideoPlayer from '@/components/VideoPlayer.vue';
-import type { HomeBenefit, HomeCourse, HomeTestimonial } from '@/types/home';
+import { useHomeStore } from '@/stores/homeStore';
 import { ref } from 'vue';
 
+const homeStore = useHomeStore();
 const isLoading = ref(true);
-const benefits = ref<HomeBenefit[]>([]);
-const courses = ref<HomeCourse[]>([]);
-const testimonials = ref<HomeTestimonial[]>([]);
 
 async function getData() {
   try {
-    const { data } = await api.homeService.getData();
-
-    benefits.value = data.benefits;
-    courses.value = data.courses;
-    testimonials.value = data.testimonials;
+    await homeStore.loadData();
   } catch (error) {
     console.error(error);
   } finally {
